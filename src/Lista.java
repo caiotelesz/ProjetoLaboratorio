@@ -1,6 +1,6 @@
 public class Lista<T> extends EstruturaEstatica<T>{
-    public Lista(int linhas, int colunas) {
-        super(linhas, colunas);
+    public Lista(int linhas) {
+        super(linhas);
     }
 
     public Lista() {

@@ -23,15 +23,36 @@ public class Main {
                     pessoa.enfileira(nome, true);
                 }
 
-
-
+                JOptionPane.showMessageDialog(null, "Paciente adicionado!");
 
             } else if (opcao.equals("Chamar paciente")) {
+                if(!(pessoa.estaVazia())) {
+                    String proximoPaciente = pessoa.espiar();
+                    JOptionPane.showMessageDialog(null, "Proximo paciente: " + proximoPaciente);
+                    pessoa.desenfileira();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há ninguém na fila");
+                }
 
             } else if (opcao.equals("Verificar fila")) {
-
-            } else if (opcao.equals("Verificar Início da fila")) {
-
+                if (!pessoa.estaVazia()) {
+                    String mensagem;
+                    if(pessoa.tamanho == 1) {
+                        mensagem = "Tamanho da fila: " + pessoa.tamanho() + " pessoa";
+                    } else {
+                        mensagem = "Tamanho da fila: " + pessoa.tamanho() + " pessoas";
+                    }
+                    JOptionPane.showMessageDialog(null, mensagem);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há ninguém na fila");
+                }
+            } else if (opcao.equals("Verificar Início da Fila")) {
+                if(!(pessoa.estaVazia())) {
+                    String primeiroPaciente = pessoa.espiar();
+                    JOptionPane.showMessageDialog(null, "Primeiro paciente: " + primeiroPaciente);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há ninguém na fila");
+                }
             } else if (opcao.equals("Sair")) {
                 resp = 1;
             }

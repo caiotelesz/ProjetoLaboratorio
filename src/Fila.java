@@ -1,28 +1,28 @@
-import javax.swing.*;
-
 public class Fila<T> extends EstruturaEstatica<T>{
     public Fila() {
         super();
     }
 
-    public Fila(int capacidade, int colunas) {
-        super(capacidade, colunas);
+    public Fila(int capacidade) {
+        super(capacidade);
     }
 
     public void enfileira(T elemento, boolean prioridade) {
-        if (prioridade == true) {
-            this.adiciona(0, 0, elemento); // Adiciona no início da fila
-        } else if(prioridade == false) {
-            this.adiciona(0, 1, elemento);
-        } else if(this.estaVazia()) {
-            JOptionPane.showMessageDialog(null, "Não há ninguém na fila");
+        if (prioridade) {
+            this.adiciona(0, 0, elemento); // Adiciona no início da fila de prioridade
+        } else {
+            this.adiciona(this.tamanho, 1, elemento); // Adiciona no final da fila normal
         }
     }
     public T espiar() {
-        if(this.estaVazia()) {
-            return null;
+        if (!this.estaVazia()) {
+            if (this.elementos[0][0] != null) {
+                return this.elementos[0][0]; // Retorna o próximo paciente prioritário
+            } else if(this.elementos[0][1] != null) {
+                return this.elementos[0][1]; // Retorna o próximo paciente normal
+            }
         }
-        return this.elementos[0][0];
+        return null; // Retorna null se a fila estiver vazia
     }
 
     public T desenfileira() {
