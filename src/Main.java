@@ -7,6 +7,8 @@ public class Main {
 
         int resp = 0;
 
+        int posicaoPacientePrioritario = 0, posicaoPacienteNormal = 0;
+
         do {
             String[] valores = {"Retirar Senha", "Chamar paciente", "Verificar fila", "Verificar Início da Fila", "Sair"};
             Object opcao = JOptionPane.showInputDialog(null, "O que deseja fazer?", "Laboratório", JOptionPane.WARNING_MESSAGE, null, valores, valores[0]);
@@ -17,10 +19,14 @@ public class Main {
                 opcao = JOptionPane.showOptionDialog(null, "Situação do paciente", "Senha", JOptionPane.DEFAULT_OPTION,
                         JOptionPane.PLAIN_MESSAGE, null, situacao, situacao[1]);
 
+
+
                 if(opcao.equals(0)) {
-                    pessoa.enfileira(nome, false);
+                    pessoa.enfileira(posicaoPacientePrioritario, nome, false);
+                    posicaoPacientePrioritario++;
                 } else if(opcao.equals(1)) {
-                    pessoa.enfileira(nome, true);
+                    pessoa.enfileira(posicaoPacienteNormal, nome, true);
+                    posicaoPacienteNormal++;
                 }
 
                 JOptionPane.showMessageDialog(null, "Paciente adicionado!");

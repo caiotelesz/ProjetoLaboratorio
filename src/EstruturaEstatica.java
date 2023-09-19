@@ -28,7 +28,6 @@ public class EstruturaEstatica<T> {
             throw new IllegalArgumentException("Posição Inválida");
         }
 
-
         this.aumentaCapacidade();
 
         for (int i = 0; i < 2; i++) {

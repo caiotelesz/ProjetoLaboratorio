@@ -7,11 +7,11 @@ public class Fila<T> extends EstruturaEstatica<T>{
         super(capacidade);
     }
 
-    public void enfileira(T elemento, boolean prioridade) {
+    public void enfileira(int posicao, T elemento, boolean prioridade) {
         if (prioridade) {
-            this.adiciona(0, 0, elemento); // Adiciona no início da fila de prioridade
+            this.adiciona(posicao, 0,elemento); // Adiciona no início da fila de prioridade
         } else {
-            this.adiciona(this.tamanho, 1, elemento); // Adiciona no final da fila normal
+            this.adiciona(posicao, 1,elemento); // Adiciona no final da fila normal
         }
     }
     public T espiar() {
