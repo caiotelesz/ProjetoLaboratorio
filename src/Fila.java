@@ -1,4 +1,5 @@
 public class Fila<T> extends EstruturaEstatica<T>{
+
     public Fila() {
         super();
     }
@@ -8,7 +9,8 @@ public class Fila<T> extends EstruturaEstatica<T>{
     }
 
     public void enfileira(int posicao, T elemento, boolean prioridade) {
-        if (prioridade) {
+
+        if (prioridade == true) {
             this.adiciona(posicao, 0,elemento); // Adiciona no início da fila de prioridade
         } else {
             this.adiciona(posicao, 1,elemento); // Adiciona no final da fila normal
@@ -25,7 +27,7 @@ public class Fila<T> extends EstruturaEstatica<T>{
         return null; // Retorna null se a fila estiver vazia
     }
 
-    public T desenfileira() {
+    public T desenfileira(boolean prioridade) {
         if (this.estaVazia()) {
             return null;
         }

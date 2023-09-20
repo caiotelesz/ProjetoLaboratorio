@@ -8,6 +8,7 @@ public class Main {
         int resp = 0;
 
         int posicaoPacientePrioritario = 0, posicaoPacienteNormal = 0;
+        Pessoa pessoa1 = new Pessoa();
 
         do {
             String[] valores = {"Retirar Senha", "Chamar paciente", "Verificar fila", "Verificar Início da Fila", "Sair"};
@@ -19,23 +20,31 @@ public class Main {
                 opcao = JOptionPane.showOptionDialog(null, "Situação do paciente", "Senha", JOptionPane.DEFAULT_OPTION,
                         JOptionPane.PLAIN_MESSAGE, null, situacao, situacao[1]);
 
-
-
-                if(opcao.equals(0)) {
-                    pessoa.enfileira(posicaoPacientePrioritario, nome, false);
-                    posicaoPacientePrioritario++;
-                } else if(opcao.equals(1)) {
+                if(pessoa.estaVazia()) {
+                    posicaoPacientePrioritario = 0;
+                    posicaoPacienteNormal = 0;
+                } if(opcao.equals(1)) {
                     pessoa.enfileira(posicaoPacienteNormal, nome, true);
+                    posicaoPacientePrioritario++;
+                } else if(opcao.equals(0)) {
+                    pessoa.enfileira(posicaoPacienteNormal, nome, false);
                     posicaoPacienteNormal++;
                 }
+
 
                 JOptionPane.showMessageDialog(null, "Paciente adicionado!");
 
             } else if (opcao.equals("Chamar paciente")) {
                 if(!(pessoa.estaVazia())) {
                     String proximoPaciente = pessoa.espiar();
-                    JOptionPane.showMessageDialog(null, "Proximo paciente: " + proximoPaciente);
-                    pessoa.desenfileira();
+                    JOptionPane.showMessageDialog(null, "Próximo paciente: " + proximoPaciente);
+
+                    if(pessoa1.isPrioridade() == true) {
+                        pessoa.desenfileira(true);
+                    } else if (pessoa1.isPrioridade() == false) {
+                        pessoa.desenfileira(false);
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Não há ninguém na fila");
                 }

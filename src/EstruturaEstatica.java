@@ -30,11 +30,9 @@ public class EstruturaEstatica<T> {
 
         this.aumentaCapacidade();
 
-        for (int i = 0; i < 2; i++) {
-            for (int j = this.tamanho - 1; j >= posicao; j--) {
-                this.elementos[j + 1][i] = this.elementos[j][i];
+            for (int i = this.tamanho - 1; i >= posicao; i--) {
+                this.elementos[i + 1][colunas] = this.elementos[i][colunas];
             }
-        }
 
         this.elementos[posicao][colunas] = elemento;
 
@@ -91,17 +89,15 @@ public class EstruturaEstatica<T> {
         return true;
     }
 
-    public T remove(int posicao, int coluna) {
+    public T remove(int posicao, int colunas) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição Inválida");
         }
 
         T elementoRemovido = this.elementos[posicao][0];
 
-        for(int i = 0; i < 2; i ++) {
-            for (int j = posicao; j < tamanho; j++) {
-                elementos[j][i] = elementos[j + 1][i];
-            }
+        for (int i = posicao; i < tamanho; i++) {
+            elementos[i][colunas] = elementos[i + 1][colunas];
         }
 
         this.tamanho--;
