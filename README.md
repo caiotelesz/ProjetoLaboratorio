@@ -1,8 +1,8 @@
 <h1>Projeto de Laboratório - Sistema de Atendimento de Pacientes</h1>
 
 <p>Este projeto implementa um sistema de atendimento de pacientes em um laboratório. Ele foi desenvolvido como parte de um trabalho acadêmico e demonstra o uso de estruturas de dados em Java.</p>
-
-<h3>Funcionalidades</h3>
+  
+<h2>Funcionalidades</h2>
 
 <p>O projeto possui as seguintes funcionalidades:</p>
 
@@ -29,11 +29,11 @@
 
 <p>Para utilizar o sistema, basta executar a classe <code>Main</code>. Ela iniciará a interface interativa onde o usuário pode escolher as opções disponíveis.</p>
 
-<h3>Observações</h3>
+<h2>Observações</h2>
 
 <p>Lembre-se de fornecer informações adicionais sobre o projeto, como possíveis requisitos ou configurações necessárias para executá-lo. Também é útil incluir uma seção de licença se você deseja compartilhar o código com outras pessoas.</p>
 
-<h3>Contribuições</h3>
+<h2>Contribuições</h2>
 
 <p>Contribuições são bem-vindas! Se você identificar melhorias ou correções, fique à vontade para criar um <em>pull request</em>.</p>
 
