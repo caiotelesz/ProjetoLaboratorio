@@ -24,7 +24,7 @@ public class Main {
                     posicaoPacientePrioritario = 0;
                     posicaoPacienteNormal = 0;
                 } if(opcao.equals(1)) {
-                    pessoa.enfileira(posicaoPacienteNormal, nome, true);
+                    pessoa.enfileira(posicaoPacientePrioritario, nome, true);
                     posicaoPacientePrioritario++;
                 } else if(opcao.equals(0)) {
                     pessoa.enfileira(posicaoPacienteNormal, nome, false);
